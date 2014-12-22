@@ -14,7 +14,7 @@
       [zoom>=12] { line-width: 1.25; }
       [zoom>=14] { line-width: 2; }
       [zoom>=15] { line-width: 2.25; }
-      [zoom>=16] { line-width: 4; }
+      [zoom>=16] { line-width: 6; }
     }
     [class='main'][zoom>=14] {
       line-color: @bright;
@@ -22,6 +22,14 @@
 	  [zoom>=15] { line-width: 6; }
       [zoom>=17] { line-width: 15; }
     }
+    [class='path'] {
+      line-color: @orange;
+      line-cap: round;
+      line-dasharray: 3,1;
+      line-width: 0.25;
+//      [zoom>=16] { line-dasharray: 6,2; line-width: 1; }
+      [zoom>=18] { line-dasharray: 8,4; line-width: 1.75; }
+      }
   }
 
   // fill/inlines
@@ -47,7 +55,7 @@
   }
 }
 
-#road['mapnik::geometry_type'=2][zoom>=10] {
+#road, #bridge, #tunnel['mapnik::geometry_type'=2][zoom>=10] {
   [class='minor_rail'][zoom>13],
   [class='major_rail'] {
       line-color: @red;

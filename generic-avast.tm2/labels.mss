@@ -1,10 +1,10 @@
 // Languages: name (local), name_en, name_fr, name_es, name_de
 @name: '[name_en]';
-@fallback: 'Arial Unicode MS Regular';
-@serif: 'Droid Serif Bold', @fallback;
-@sans: 'Roboto Bold Condensed', @fallback;
-@sans_it: 'Roboto Bold Condensed Italic', @fallback;
-@sans_bd: 'Roboto Black', @fallback;
+@fallback: 'Call Eight Negative OT Regular';
+@serif: 'Meta Serif Offc Pro Bold',@fallback;
+@sans: 'Avenir Book', 'Source Sans Pro Regular', @fallback;
+@sans_it: 'Avenir Book Oblique','Source Sans Pro Italic', @fallback;
+@sans_bd: 'Avenir Heavy','Source Sans Pro Semibold', @fallback;
 
 // Places //
 
@@ -116,9 +116,10 @@
 #road_label::us_shield[class='motorway'] {
   // Default shields
   shield-file: url("img/shield/motorway_sm_[reflen].png");
+  shield-transform: scale(1.75,1.75);
   shield-name: [ref];
   shield-face-name: @sans_bd;
-  shield-size: 13;
+  shield-size: 23;
   shield-fill: @darkblue;
   shield-min-padding: 10;
   shield-min-distance: 40;
@@ -161,13 +162,9 @@
   }
 }
 #road_label['mapnik::geometry_type'=2] {
-  [class='motorway'],
-  [class='main'][zoom>=12],
-  [class='street'][zoom>=15],
-  [class='street_limited'][zoom>=16],
-  [class='service'][zoom>=17] {
+  [class='main'][zoom>=12] {
     text-name: [name];
-    text-face-name: @sans;
+    text-face-name: @sans_bd;
     text-fill: @darkblue;
     text-placement: line;
     text-avoid-edges: true;
@@ -176,17 +173,9 @@
     text-min-distance: 200;
     text-size: 12;
     [zoom>=15] { text-size: 14; }
-    [zoom>=16] { text-size: 16; }
-    [zoom>=17] { text-size: 18; }
-    [zoom>=18] { text-size: 20; }
-    [class='motorway'] {
-      [zoom>=13] { text-size: 13; }
-      [zoom>=16] { text-size: 20; }
-    }
-    [class='service'] {
-      text-size: 16;
-      text-fill: @darkblue;
-    }
+    [zoom>=16] { text-size: 30; }
+    [zoom>=17] { text-size: 28; }
+    [zoom>=18] { text-size: 36; }
   }
 }
 
@@ -215,8 +204,8 @@
   marker-height: 18;
   marker-allow-overlap: false;
   [zoom>=16] {
-    marker-file: url("img/rail/[network]-12.svg");
-    marker-height:24;
+    marker-file: url("img/rail/[network]-18.svg");
+    marker-height:28;
     text-name: @name;
     text-face-name: @sans_bd;
     text-fill: @darkblue;
