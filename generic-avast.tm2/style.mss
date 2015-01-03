@@ -44,7 +44,7 @@ Map {
 #landuse[zoom>=9] {
 	polygon-pattern-file:url(img/noise.png);
 	polygon-pattern-alignment:global;
-	[class='park'] {
+	[class='park'],[class='grass'] {
     	polygon-fill: @park;
     	polygon-opacity: 0.75;
   	}

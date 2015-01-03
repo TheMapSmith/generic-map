@@ -9,8 +9,8 @@ bounds:
   - 180
   - 85.0511
 center: 
-  - -97.7457
-  - 30.2674
+  - -97.7415
+  - 30.2737
   - 16
 description: ''
 format: "png8:m=h"
@@ -19,10 +19,9 @@ layers: null
 maxzoom: 18
 minzoom: 0
 name: "\"Generic\" Map"
-source: "mapbox:///mapbox.mapbox-terrain-v1,mapbox.mapbox-streets-v4"
+source: "mapbox:///mapbox.mapbox-streets-v5"
 styles: 
   - style.mss
   - roads.mss
-  - terrain.mss
   - labels.mss
 template: ''

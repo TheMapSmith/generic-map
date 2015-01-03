@@ -9,6 +9,7 @@
     [class='motorway'] {
 	  line-color:@red;
       line-width: 0.5;
+      line-cap: round;
       [zoom>=6] { line-width: 0.75; }
       [zoom>=10] { line-width: 1; }
       [zoom>=12] { line-width: 1.25; }
@@ -36,6 +37,7 @@
   ::fill['mapnik::geometry_type'=2][zoom>=9] {
     [class='main'] {
       line-color: @darkblue;
+      line-cap: round;
       [zoom>=9] { line-width: 0.15; }
 	  [zoom>=11] { line-width: 0.35; }
       [zoom>=12] { line-width: 0.40; }
