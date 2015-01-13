@@ -1,124 +1,59 @@
-// Languages: name (local), name_en, name_fr, name_es, name_de
+// Fonts //
 @name: '[name_en]';
-@fallback: 'Call Eight Negative OT Regular';
-@serif: 'Meta Serif Offc Pro Bold',@fallback;
+@fallback: 'Open Sans Regular';
+
 @sans: 'Avenir Book', 'Source Sans Pro Regular', @fallback;
-@sans_it: 'Avenir Book Oblique','Source Sans Pro Italic', @fallback;
-@sans_bd: 'Avenir Heavy','Source Sans Pro Semibold', @fallback;
+@sans_med: 'Avenir Medium', @fallback;
+@sans_bold: 'Avenir Heavy','Source Sans Pro Semibold', @fallback;
 
-// Places //
+@sans_italic: 'Avenir Book Oblique','Source Sans Pro Italic', @fallback;
+@sans_med_italic: 'Avenir Medium Oblique', @fallback;
+@sans_black_italic: 'Avenir Black Oblique', @fallback;
+@sans_bold_italic: 'Avenir Heavy Oblique',@fallback;
+@sans_black: 'Avenir Black', @fallback;
 
-#place_label {
-  [type='city'][zoom<=16][name!='Austin'] {
-    text-name: @name;
-    text-face-name: @serif;
-    text-fill: @darkblue;
-    text-halo-fill: @bright;
-    text-halo-radius: 2.5px;
-    text-size: 13;
-    text-line-spacing: -5px;
-    text-wrap-width: 200;
-    text-wrap-before: true;
-	[zoom>=12] { text-size: 20; }
-    [zoom>=14] {
-		text-size: 24;
-		text-halo-radius: 3px;
-    }
-    [scalerank=0],
-    [scalerank=1] {
-		[zoom>=7] { text-size: 18; }
-        [zoom>=9] { text-size: 20; }
-        [zoom>=10] { text-size: 22; }
-		[zoom>=11] {
-        	text-size: 24;
-            text-halo-radius: 3px;
-			[zoom>=13] { text-size: 26; }
-      	}
-    }
-  }
-  [type='town'][zoom<=17] {
-    text-name: @name;
-    text-face-name: @serif;
-    text-fill: @darkblue;
-    text-size: 14;
+@serif_bold: 'Meta Serif Offc Pro Bold',@fallback;
+@serif_italic: 'Meta Serif Offc Pro Italic',@fallback;
+
+#centroids [zoom=16]{
+  text-fill: @darkblue;
+  text-name: [Name];
+  text-face-name: 'Avenir Black';
+  text-size: 90;
+  text-wrap-width: 200;
+  text-align: center;
+  text-line-spacing: -35;  
+  text-halo-fill: @land;
+  text-halo-radius: 7;
+  text-allow-overlap: true;
+  [Name="Capital"] { text-name: "'State Capital'"; }
+  [Name="Campus"] {
+    text-name: "'UT Campus'";
     text-wrap-width: 100;
-	text-halo-fill:	@bright;
-    text-halo-radius: 2px;
-    text-wrap-before: true;
-  }
-  [type='village'] {
-    text-name: @name;
-    text-face-name: @serif;
-    text-fill: @darkblue;
-	text-halo-fill:	@bright;
-    text-halo-radius: 2px;
-    text-size: 12;
-    text-wrap-width: 100;
-    text-wrap-before: true;
-    [zoom>=12] { text-size: 14; }
-    [zoom>=14] { text-size: 18; }
-  }
-  [type='hamlet'][zoom<=17],
-  [type='suburb'][zoom<=17],
-  [type='neighbourhood'][zoom<=17] {
-    text-name: @name;
-    text-face-name: @serif;
-    text-fill: @darkblue;
-	text-halo-fill: @bright;
-    text-halo-radius: 2px;
-    text-size: 13;
-    text-wrap-width: 100;
-    text-wrap-before: true;
-	[zoom>=13] {
-      text-size: 14;
-      text-wrap-width:150;
-      text-halo-radius: 3px;
+    text-line-spacing: -55;
+    text-dy: 1;
     }
-    [zoom>=14] { text-size: 16; }
-    [zoom>=15] { text-size: 18; }
-	[zoom>=16] { text-size: 22; }
-  }
+  [Name="Rainey"]   { text-name: "'Rainey Street'"; }
+  [Name="West 6th"] { text-name: "'West 6th St'"; }
+  [Name="East 6th"] { text-name:"'East 6th St'"; }
+  [Name="Zilker"]   { text-name: "'Zilker Park'"; }
+  [Name="So Co"]    { text-name: "'South Congress'"; }
+  [Name="Dirty 6th"] {
+    text-name: "'6th St'";
+    text-wrap-width: 5;
+    }
 }
 
-#water_label {
-  [zoom<=13],  // automatic area filtering @ low zooms
-  [zoom>=14][area>500000],
-  [zoom>=16][area>10000],
-  [zoom>=17] {
-    text-name: @name;
-    text-face-name: @serif;
-    text-fill: darken(@water, 30%);
-    text-size: 13;
-    text-wrap-width: 100;
-    text-wrap-before: true;
-  }
-}
-
-#area_label {
-  [class='park'] {
-    [zoom<=13],  // automatic area filtering @ low zooms
-    [zoom>=14][area>500000],
-    [zoom>=16][area>10000],
-    [zoom>=17] {
-      text-name: @name;
-      text-face-name: @serif;
-      text-fill: @red;
-      text-halo-fill: @bright;
-      text-size: 13;
-      text-wrap-width: 100;
-      text-wrap-before: true;
-    }
-  }
-}
-
-// ROADS //
+// MAJOR ROADS //
 @us-shield-name: "[ref].replace(';.*', '').replace('^[^\d]*', '')";
-#road_label::us_shield[class='motorway'] {
+#road_label::us_shield[class='motorway'][zoom>=16] {
   // Default shields
   shield-file: url("img/shield/motorway_sm_[reflen].png");
   shield-transform: scale(1.75,1.75);
   shield-name: [ref];
-  shield-face-name: @sans_bd;
+  //MoPac Case
+    [ref=~'.*Loop 1.*'] { shield-name: 'MoPac'; shield-file: url("img/shield/motorway_sm_6.png"); }
+  shield-face-name: @sans_bold;
   shield-size: 23;
   shield-fill: @darkblue;
   shield-min-padding: 10;
@@ -128,6 +63,7 @@
   [zoom>=12] { shield-min-distance: 70; }
   [zoom>=13] { shield-min-distance: 60; }
   [zoom>=14] { shield-min-distance: 80; }
+  [zoom>=16] { shield-min-distance: 150; }
   // 1 & 2 digit US state highways
   [ref =~ '^(AL|AK|AS|AZ|AR|CA|CO|CT|DE|DC|FM|FL|GA|GU|HI|ID|IL|IN|IA|KS|KY|LA|ME|MH|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|MT|OH|OK|OR|PW|PA|PR|RI|SC|SD|TN|TX|UT|VT|VI|VA|WA|WV|WI|WY|SR)\ ?\d[\dA-Z]?(;.*|$)'] {
     shield-file: url(img/shield/us_state_2.png);
@@ -161,59 +97,64 @@
     shield-fill: #fefef1;
   }
 }
-#road_label['mapnik::geometry_type'=2] {
-  [class='main'][zoom>=12] {
-    text-name: [name];
-    text-face-name: @sans_bd;
-    text-fill: @darkblue;
-    text-placement: line;
-    text-avoid-edges: true;
-    text-halo-fill: @bright;
-    text-halo-radius: 2;
-    text-min-distance: 200;
-    text-size: 12;
-    [zoom>=15] { text-size: 14; }
-    [zoom>=16] { text-size: 30; }
-    [zoom>=17] { text-size: 28; }
-    [zoom>=18] { text-size: 36; }
-  }
-}
 
-#water_label {
-  [zoom<=13],  // automatic area filtering @ low zooms
-  [zoom>=14][area>500000],
-  [zoom>=16][area>10000] {
-    text-name: @name;
-    text-face-name: @sans_it;
-    text-fill: @red;
-	text-halo-fill: @bright;
-    text-halo-radius: 2px;
-    text-size: 12;
-    text-wrap-width: 100;
-    text-wrap-before: true;
-    text-line-spacing: -2;
-    [zoom>=10] { text-size: 16; }
-  }
-}
+#road_label { 
+    [class='main'][name=~'^((?!Frontage).)*$'][zoom>=16] { //this regex is for eliminating "frontage" labels 
+      text-name: @name;
+      text-placement: line;
+      text-face-name: @sans_bold;
+      text-fill: @darkblue;
+      text-avoid-edges: true;
+      text-min-padding: 25;
+      text-transform:lowercase;
+      text-halo-fill: @land;
+      [zoom>=16] {
+        text-size: 30;
+        text-halo-radius: 4;
+        text-halo-fill: @land;
+        }
+      [zoom>=18] {
+        text-size: 34;
+        text-halo-radius: 5;
+        text-halo-fill: @land;
+        }        
+      } 
+    [class='street'][zoom>=18],
+    [class='street_limited'][zoom>=18] {
+      text-name: @name;
+      text-placement: line;
+      text-face-name: @sans_med_italic;
+      text-fill: @darkblue;
+      text-avoid-edges: true;
+      text-halo-radius: 3;
+      text-halo-fill: @land;
+      text-min-padding: 25;      
+      text-transform:lowercase;
+      text-size: 30;
+   }
+} 
 
-// Note: != null condition is a workaround for mapnik#1952.
-#poi_label[type='Rail Station'][network!=null][scalerank=1][zoom>=14],
-#poi_label[type='Rail Station'][network!=null][scalerank=2][zoom>=15],
-#poi_label[type='Rail Station'][network!=null][scalerank=3][zoom>=16] {
-  marker-file: url("img/rail/[network]-18.svg");
-  marker-height: 18;
-  marker-allow-overlap: false;
-  [zoom>=16] {
-    marker-file: url("img/rail/[network]-18.svg");
-    marker-height:28;
-    text-name: @name;
-    text-face-name: @sans_bd;
-    text-fill: @darkblue;
-    text-halo-fill: @bright;
-    text-halo-radius: 2px;
-    text-halo-rasterizer: fast;
-    text-size: 14;
-    text-wrap-width: 80;
-    text-line-spacing: -3;
+// waterway labels
+// who needs 'em?
+
+//ladybird lake trail
+
+#road_label [name="Lady Bird Lake Hike and Bike Trail"] {
+      text-name: "'Town Lake Running Trail'";
+      text-placement: line;
+      text-face-name: @sans_italic;
+      text-fill: @darkblue;
+//      text-avoid-edges: true;
+      text-halo-radius: 2;
+      text-halo-fill: @land;    
+      text-min-padding: 25;      
+      text-transform:lowercase;
+  text-allow-overlap: true;
+      [zoom>=16] {
+        text-size: 19;//(@max - @drk) + 3;        
+        }
+      [zoom>=18] {
+        text-face-name: @sans_med_italic;        
+        text-size: 20;//(@max - @drkst) ;//* 2.5;
+        }
   }
-}

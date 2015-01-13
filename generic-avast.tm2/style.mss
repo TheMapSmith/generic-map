@@ -1,14 +1,20 @@
 @water: #0093AC;
-@park: #D4D83B;
-@tan: rgb(228,206,170);
-@bright: rgb(246, 238, 235);
+@park: #A2CB3C; //#d2d638;//#D4D83B;
+@tan: rgb(228,206,170); // more brownish#af9055; 
+@land: rgb(246, 238, 235);
 @darkblue: darken(@water, 20);
 @red: #BD443E;
 @orange: #E18A48;
 @grey: rgb(133,133,133);
+@purple: #9977b2;
+@yellow: #e9bf3f;
+@silver: #cdd9ce;
+@cyan: #0ae1f1;
+@bluegreen: #42aa8d;
+@black: #27201b;
 
 Map {
-  background-color:@bright;
+  background-color:@land;
 }
 
 // Political boundaries //
@@ -44,17 +50,17 @@ Map {
 #landuse[zoom>=9] {
 	polygon-pattern-file:url(img/noise.png);
 	polygon-pattern-alignment:global;
-	[class='park'],[class='grass'] {
+	[class='park'],[class='grass'],[class='pitch'],[class='cemetery'] {
     	polygon-fill: @park;
-    	polygon-opacity: 0.75;
+    	polygon-opacity: 0.675;
+    line-color: @land;
+    line-width: .5;
+    line-opacity: .75;
+    line-gamma: .5;
   	}
-  	[class='industrial'] {
-    	polygon-fill: @orange;
-    	polygon-opacity:0.75;
-  	}
-  	[class='cemetery'] {
-		polygon-fill: darken(@tan, 10%);
-  	}
+  	[class='school'] { polygon-fill: @purple; polygon-opacity: 0.75; }
+    [type='university'] { polygon-fill: @orange;polygon-opacity: 0.75; } 
+    [class='hospital'] { polygon-fill: @purple;polygon-opacity: 0.75; }
     [class='parking'] {
         polygon-fill: @grey;
         polygon-opacity: .125;
