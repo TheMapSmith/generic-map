@@ -5,9 +5,9 @@
 <Parameters>
   <Parameter name="attribution"><![CDATA[<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a>]]></Parameter>
   <Parameter name="bounds">-180,-85.0511,180,85.0511</Parameter>
-  <Parameter name="center">-97.7256,30.3544,18</Parameter>
-  <Parameter name="format">png8:m=h</Parameter>
-  <Parameter name="maxzoom">18</Parameter>
+  <Parameter name="center">-97.7586,30.2743,16</Parameter>
+  <Parameter name="format">png8:m=h:c=32</Parameter>
+  <Parameter name="maxzoom">22</Parameter>
   <Parameter name="minzoom">0</Parameter>
   <Parameter name="name"><![CDATA["Generic" Map]]></Parameter>
   <Parameter name="source"><![CDATA[mapbox:///mapbox.mapbox-terrain-v1,mapbox.mapbox-streets-v5,srsjojo.70f21f98,srsjojo.4a4aca5e,srsjojo.2dc77ea6]]></Parameter>
@@ -33,115 +33,34 @@
 </FontSet>
 <Style name="landcover" filter-mode="first">
   <Rule>
-    <PolygonSymbolizer fill="#a2cb3c" fill-opacity="0.05" />
+    <PolygonSymbolizer fill="#a2cb3c" fill-opacity="0.075" />
   </Rule>
 </Style>
 <Layer name="landcover"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>landcover</StyleName>  </Layer>
 
-<Style name="hillshade-4" filter-mode="first">
+<Style name="hillshade" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([class] = 'full_highlight')</Filter>
-    <PolygonPatternSymbolizer file="img/full_highlight.png" opacity="0.1" alignment="global" />
+    <PolygonPatternSymbolizer file="img/full_highlight-HD.png" opacity="0.075" alignment="global" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([class] = 'medium_highlight')</Filter>
-    <PolygonPatternSymbolizer file="img/medium_highlight.png" opacity="0.1" alignment="global" />
+    <PolygonPatternSymbolizer file="img/medium_highlight-HD.png" opacity="0.075" alignment="global" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([class] = 'medium_shadow')</Filter>
-    <PolygonPatternSymbolizer file="img/medium_shadow.png" opacity="0.1" alignment="global" />
+    <PolygonPatternSymbolizer file="img/medium_shadow-HD.png" opacity="0.075" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([class] = 'full_shadow')</Filter>
-    <PolygonPatternSymbolizer file="img/full_shadow.png" opacity="0.1" alignment="global" />
-  </Rule>
-</Style>
-<Style name="hillshade-3" filter-mode="first">
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([class] = 'full_highlight')</Filter>
-    <PolygonPatternSymbolizer file="img/full_highlight.png" opacity="0.1" alignment="global" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([class] = 'medium_highlight')</Filter>
-    <PolygonPatternSymbolizer file="img/medium_highlight.png" opacity="0.1" alignment="global" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([class] = 'medium_shadow')</Filter>
-    <PolygonPatternSymbolizer file="img/medium_shadow.png" opacity="0.1" alignment="global" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([class] = 'full_shadow')</Filter>
-    <PolygonPatternSymbolizer file="img/full_shadow.png" opacity="0.1" alignment="global" />
-  </Rule>
-</Style>
-<Style name="hillshade-2" filter-mode="first">
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([class] = 'full_highlight')</Filter>
-    <PolygonPatternSymbolizer file="img/full_highlight.png" opacity="0.1" alignment="global" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([class] = 'medium_highlight')</Filter>
-    <PolygonPatternSymbolizer file="img/medium_highlight.png" opacity="0.1" alignment="global" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([class] = 'medium_shadow')</Filter>
-    <PolygonPatternSymbolizer file="img/medium_shadow.png" opacity="0.1" alignment="global" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([class] = 'full_shadow')</Filter>
-    <PolygonPatternSymbolizer file="img/full_shadow.png" opacity="0.1" alignment="global" />
-  </Rule>
-</Style>
-<Style name="hillshade-1" filter-mode="first">
-  <Rule>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([class] = 'full_highlight')</Filter>
-    <PolygonPatternSymbolizer file="img/full_highlight.png" opacity="0.1" alignment="global" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([class] = 'medium_highlight')</Filter>
-    <PolygonPatternSymbolizer file="img/medium_highlight.png" opacity="0.1" alignment="global" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([class] = 'medium_shadow')</Filter>
-    <PolygonPatternSymbolizer file="img/medium_shadow.png" opacity="0.1" alignment="global" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([class] = 'full_shadow')</Filter>
-    <PolygonPatternSymbolizer file="img/full_shadow.png" opacity="0.1" alignment="global" />
+    <PolygonPatternSymbolizer file="img/full_shadow-HD.png" opacity="0.075" alignment="global" />
   </Rule>
 </Style>
 <Layer name="hillshade"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-    <StyleName>hillshade-1</StyleName>
-    <StyleName>hillshade-2</StyleName>
-    <StyleName>hillshade-3</StyleName>
-    <StyleName>hillshade-4</StyleName>  </Layer>
+    <StyleName>hillshade</StyleName>  </Layer>
 
 <Layer name="contour"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">

@@ -9,14 +9,14 @@ bounds:
   - 180
   - 85.0511
 center: 
-  - -97.7256
-  - 30.3544
-  - 18
+  - -97.7586
+  - 30.2743
+  - 16
 description: ''
-format: "png8:m=h"
+format: "png8:m=h:c=32"
 interactivity_layer: ''
 layers: null
-maxzoom: 18
+maxzoom: 22
 minzoom: 0
 name: "\"Generic\" Map"
 source: "mapbox:///mapbox.mapbox-terrain-v1,mapbox.mapbox-streets-v5,srsjojo.70f21f98,srsjojo.4a4aca5e,srsjojo.2dc77ea6"

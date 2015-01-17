@@ -13,6 +13,8 @@
 @bluegreen: #42aa8d;
 @black: #27201b;
 
+@4x: 16;
+
 Map {
   background-color:@land;
 }
