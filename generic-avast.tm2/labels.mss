@@ -15,7 +15,7 @@
 @serif_bold: 'Meta Serif Offc Pro Bold',@fallback;
 @serif_italic: 'Meta Serif Offc Pro Italic',@fallback;
 
-#centroids [zoom=16]{
+#centroids [zoom=16][Name!='East 6th'] {
   text-fill: @darkblue;
   text-name: [Name];
   text-face-name: 'Avenir Black';
@@ -35,7 +35,6 @@
     }
   [Name="Rainey"]   { text-name: "'Rainey Street'"; }
   [Name="West 6th"] { text-name: "'West 6th St'"; }
-  [Name="East 6th"] { text-name:"'East 6th St'"; }
   [Name="Zilker"]   { text-name: "'Zilker Park'"; }
   [Name="So Co"]    { text-name: "'South Congress'"; }
   [Name="Dirty 6th"] {

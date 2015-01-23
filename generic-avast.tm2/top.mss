@@ -5,11 +5,11 @@
     [name="Bennu Coffee"],
     [name="Salty Sow"],
     [name="Eastside Cafe"],
-    [name="'Donn's Depot'"],
+    [osm_id= 1000001481721293],//[name="'Donn's Depot'"],
     [name="Alamo Drafthouse"][osm_id!=1000001481633325],
     [name="Uchi"],
     [name="Barley Swine"],
-    [name="Domincan Joe Coffee Shop"],
+    [osm_id= 1000000919335942 ],//[name="Domincan Joe Coffee Shop"],
     [name="'Jo's Coffee'"],
     [name="'Torchy's Tacos'"][osm_id!=1000003181780241], //not So 1st one
     [name="Summermoon Coffee Bar"],
@@ -17,7 +17,6 @@
     [name="Kerbey Lane"][osm_id!=1000003181892454], // exclude campus
     [name="'Rudy's Texas Bar-B-Q'"],
     [osm_id=1000000436633129], //magnolias lake austin
-    [name="'Donn's Depot'"],
     [osm_id=1000000537495439], //360 whole foods
     [name="Ramen Tatsu-Ya"],
     [osm_id=1000001953179853], //anderson hopdoddy
@@ -27,7 +26,10 @@
     [name="Draught House"],
     [osm_id=1000001236793007], //quacks
     [name="Epoch Coffee"],
-    [name="Mozart's Coffee Roasters"]
+    [name="Mozart's Coffee Roasters"],
+    [name="Qui"],
+    [osm_id=1000003190873015],//via313
+    [name="East Side King"],[name='Rio Rita']
     {
     
     ::icon { 

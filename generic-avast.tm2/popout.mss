@@ -35,73 +35,6 @@
   }
 
 #poi_label [zoom>=18] {
-  ::e6th {
-    ::top [name="Qui"],[osm_id=1000003190873015],[name="East Side King"] //via313
-      {
-      ::icon {
-        marker-fill:@red;
-        marker-line-color: @land;
-        marker-line-width: 6;
-        marker-file:url('icon/[maki]-24.svg');
-        marker-height: 84;   
-        marker-allow-overlap: true;
-        marker-allow-overlap: false;        
-        }//end icon
-      
-      ::label {
-        text-name: @name;
-        text-face-name: @sans_bold;
-        text-fill: @red;      
-        text-size: 55;
-        text-halo-fill: @land;
-        text-halo-radius: 6;
-        text-wrap-width: 30;
-        text-line-spacing:  -15;
-        text-align: center;
-        text-placement-type: simple;
-        text-placements: "S,SW,SE,E,W,SSW,SSE,N";
-        text-transform: lowercase;
-        text-character-spacing: 0.25;
-        text-dy: 40;       
-        text-avoid-edges: false;
-        text-allow-overlap: true;         
-        }//end label
-      } //end top
-    
-    ::other [name="Shangri La"],[name="Rio Rita"],
-    [name="Vintage Heart Coffee"],[name="The White Horse"],
-    [name="The Liberty"],[name="Yellow Jacket Social Club"]
-      {
-      ::icon {
-        marker-fill:@orange;
-        marker-line-color: @land;
-        marker-line-width: 6;
-        marker-file:url('icon/[maki]-24.svg');
-        marker-height: 72;   
-        marker-allow-overlap: true;
-        marker-allow-overlap: false;        
-        }//end icon
-      
-      ::label {
-        text-name: @name;
-        text-face-name: @sans_bold;
-        text-fill: @orange;      
-        text-size: 45;
-        text-halo-fill: @land;
-        text-halo-radius: 6;
-        text-wrap-width: 30;
-        text-line-spacing:  -15;
-        text-align: center;
-        text-placement-type: simple;
-        text-placements: "S,SW,SE,E,W,SSW,SSE,N";
-        text-transform: lowercase;
-        text-character-spacing: 0.25;
-        text-dy: 40;       
-        text-avoid-edges: false;
-        text-allow-overlap: true;         
-        }//end label      
-      } //end other    
-    }//end e6th
   
   ::capital {
     
@@ -149,7 +82,8 @@
   ::rainey 
    {
     ::top [name="Clive Bar"],[name="Icenhauer's"],[name="Banger's Sausage House & Beer Garden"],
-      [name="G'Raj Mahal"],[name="Craft Pride"],[osm_id=1000003190873016] //via313
+      [name="G'Raj Mahal"],[name="Craft Pride"],[osm_id=1000003190873016], //via313
+      [name='la Barbecue']
       {
       ::icon {
         marker-fill:@red;
@@ -244,7 +178,9 @@
   ::dirty 
     {
     ::top [name="Moonshine Bar & Grill"],[osm_id=1000003190890891], //houndstooth
-      [name="HandleBar"],[name="Chi'Lantro"],[name="Mohawk"]
+      [name="HandleBar"],[name="Chi'Lantro"],[name="Mohawk"], 
+      [name="Easy Tiger"],[name='Halcyon'],[name="Casino El Camino"],
+      [osm_id= 1000003181780232 ] //jackalope
       {
       ::icon [name!="HandleBar"] {
         marker-fill:@red;
@@ -277,7 +213,7 @@
         [name="HandleBar"] { 
           text-placements: "N";
           text-dy: 90; }
-        
+                
         //wrap less
           [name="Moonshine Bar & Grill"]
           {
@@ -295,7 +231,7 @@
     
     ::other [name="Paramount Theatre"],
     [name="The Hideout"],[name="The Driskill"],[name="Eddie V's"],
-    [name="Pete's Dueling Piano Bar"],[name="Stubb's"],[name="Fogo De Chao"],
+      [name="Stubb's"],[name="Fogo De Chao"],
     [name="Cafe Crepe"],[name="Vince Young Steakhouse"],
       [name="Blind Pig"],[name="Red Eyed Fly"],[name="Cedar Door"]
       {
@@ -330,16 +266,28 @@
         //exceptions
         
         //wrap less
-        [name="Vince Young Steakhouse"],[name="Pete's Dueling Piano Bar"],
-          [name="Moonshine Bar & Grill"] { text-wrap-width: 190;}
-                        
+        [name="Vince Young Steakhouse"],[name="Moonshine Bar & Grill"] 
+          { text-wrap-width: 190;}
+
+                //wrap much less
+        [osm_id= 1000001481633307 ] { //pete's
+          text-wrap-width: 90;
+          }
+        
+        //north
+        [name="Blind Pig"] {
+          text-placements: "W";
+          text-dx: 15;
+          }
+
+        
         }//end label      
       } //end other        
     }//end dirty
   
   ::w6th 
     {
-    ::top [osm_id=1000003190877885]//[name="Jo's Coffee"]
+    ::top [osm_id=1000003190877885],[name="Antone's"]//[name="Jo's Coffee"]
       {
       ::icon {
         marker-fill:@red;
@@ -371,7 +319,7 @@
         }//end label
       } //end top
     
-    ::other [name="'Antone's'"],[name="The Gingerman"],[name="Cantina Laredo"],[name="III Forks"],[name="La Zona Rosa"],
+    ::other [name="'Antone's'"],[name="Cantina Laredo"],[name="III Forks"],[name="La Zona Rosa"],
     [name="Kung Fu Saloon"],[name="Hut's Hamburgers"],[name="Little Woodrow's"],
     [name="Manuel's"]
       {
