@@ -15,7 +15,6 @@
     [name="Summermoon Coffee Bar"],
     [osm_id=1000003190845084], //ESK S Lamar
     [name="Kerbey Lane"][osm_id!=1000003181892454], // exclude campus
-    [name="'Rudy's Texas Bar-B-Q'"],
     [osm_id=1000000436633129], //magnolias lake austin
     [osm_id=1000000537495439], //360 whole foods
     [name="Ramen Tatsu-Ya"],
@@ -29,7 +28,7 @@
     [name="Mozart's Coffee Roasters"],
     [name="Qui"],
     [osm_id=1000003190873015],//via313
-    [name="East Side King"],[name='Rio Rita']
+    [name='Rio Rita']
     {
     
     ::icon { 

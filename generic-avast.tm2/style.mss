@@ -60,14 +60,21 @@ Map {
     line-opacity: .75;
     line-gamma: .5;
   	}
-  	[class='school'] { polygon-fill: @purple; polygon-opacity: 0.75; }
+  	[class='school'] { 
+    polygon-fill: @purple; 
+    polygon-opacity: 0.75; }
     [type='university'] { polygon-fill: @orange;polygon-opacity: 0.75; } 
     [class='hospital'] { polygon-fill: @purple;polygon-opacity: 0.75; }
     [class='parking'] {
         polygon-fill: @grey;
         polygon-opacity: .125;
         line-color: @grey;
-        line-opacity: .33;
+        line-opacity: .25;
+    shield-name: "";
+    shield-face-name: @fallback;
+    shield-file: url(icon/parking-24.svg);
+    shield-opacity: .25;
+    shield-placement: point;
     }
 }
 

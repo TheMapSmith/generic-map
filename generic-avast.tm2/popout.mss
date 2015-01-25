@@ -1,3 +1,17 @@
+#waterway_label [osm_id=267934590] {
+  text-name: "'Lady Bird Lake'";
+  text-face-name: @serif_italic;
+  text-fill: @water;
+  text-halo-fill: #ddd;
+  text-halo-radius: 1.25;
+  text-halo-opacity: .75;
+  text-size: 35;
+  text-placement: line;
+  text-avoid-edges: true;
+  text-dy: 10;
+  text-dx: -15;
+  }
+
 #rocket { //fuck the label - we'll do it live
   ::marker {
   marker-file: url('icon/rocket-24-solid.svg');
@@ -40,50 +54,9 @@
     
     //no TOP POI @ the capital
     
-    ::other [name="Texas State Capitol"] ,
+    ::top [name="Texas State Capitol"] ,
     [name="Marakesh Bar & Grill"],[name="Schultz's Beer Garden"],
-    [name="The Old Bakery and Emporium"]
-      {
-      ::icon {
-        marker-fill:@orange;
-        marker-line-color: @land;
-        marker-line-width: 6;
-        marker-file:url('icon/[maki]-24.svg');
-        marker-height: 72;   
-        marker-allow-overlap: true;        
-        }//end icon
-      
-      ::label {
-        text-name: @name;
-        text-face-name: @sans_bold;
-        text-fill: @orange;      
-        text-size: 45;
-        text-halo-fill: @land;
-        text-halo-radius: 6;
-        text-line-spacing:  -15;
-        text-align: center;
-        text-wrap-width: 120;
-        text-placement-type: simple;
-        text-placements: "S,SW,SE,E,W,SSW,SSE,N";
-        text-transform: lowercase;
-        text-character-spacing: 0.25;
-        text-dy: 40;       
-        text-avoid-edges: false;
-        text-allow-overlap: true;         
-        
-        //exceptions:
-        [name="The Old Bakery and Emporium"] { text-placements: "N"; }
-        [name="Marakesh Bar & Grill"] { text-wrap-width: 0; }        
-        
-        }//end label      
-      } //end other       
-    }//end capital
-  
-  ::rainey 
-   {
-    ::top [name="Clive Bar"],[name="Icenhauer's"],[name="Banger's Sausage House & Beer Garden"],
-      [name="G'Raj Mahal"],[name="Craft Pride"],[osm_id=1000003190873016], //via313
-      [name='la Barbecue']
+    [name="The Old Bakery and Emporium"],[name="Clay Pit"],[name="Texas Chili Parlor"]
       {
       ::icon {
         marker-fill:@red;
@@ -110,10 +83,76 @@
         text-allow-overlap: true;
         text-align: center;
         text-placement-type: simple;
+        text-dy: 40;        
+        
+        //exceptions:
+        [name="The Old Bakery and Emporium"] { 
+          text-placements: "N"; 
+          text-wrap-width: 150;
+        }
+        [name="Marakesh Bar & Grill"] { text-wrap-width: 0; }        
+        
+        }//end label      
+      } //end other       
+    }//end capital
+  
+  ::rainey 
+   {
+    ::sanchez [osm_id=1000202596391]  {
+      marker-file: url(icon/school-24.svg);
+      marker-height: 50;
+      marker-fill: @purple;
+      marker-opacity: .75;
+      text-name: @name;
+      text-face-name: @serif_italic;
+      text-size: 22;
+      text-dy: 30;
+      text-fill: @purple;
+      text-halo-fill: #ccc;
+      text-halo-radius: 1.5;
+      }
+    ::top [name="Clive Bar"],[name="Icenhauer's"],[name="Banger's Sausage House & Beer Garden"],
+      [name="G'Raj Mahal"],[name="Craft Pride"],[osm_id=1000003190873016], //via313
+      [name='la Barbecue']
+      {
+      ::icon {
+        marker-fill:@red;
+        marker-line-color: @land;
+        marker-line-width: 6;
+        marker-file:url('icon/[maki]-24.svg');
+        marker-height: 84;   
+        marker-allow-overlap: true;
+        marker-allow-overlap: false;  
+        [name="Via 313"] {
+          marker-geometry-transform: translate(20,0);
+          }
+        }//end icon
+      
+      ::label {
+        text-name: @name;
+        text-face-name: @sans_bold;
+        text-fill: @red;      
+        text-size: 55;
+        text-halo-fill: @land;
+        text-halo-radius: 6;
+        text-wrap-width: 30;
+        text-line-spacing:  -15;
+        text-transform: lowercase;
+        text-character-spacing: 0.25;
+        text-avoid-edges: false;
+        text-allow-overlap: true;
+        text-align: center;
+        text-placement-type: simple;
         text-dy: 40;
         
+        //extra east
+        [osm_id=1000003190873016] { //via313
+        text-placements: "E";
+          text-dx: 50;
+          text-wrap-width: 0;
+          }
         //east
-        [name="Icenhauer's"],[osm_id=1000003190873016], //via313
+        [name="Icenhauer's"],
           [name="Banger's Sausage House & Beer Garden"] { 
           text-placements: "E";
           text-dy: 0; text-dx: 50;      
@@ -361,6 +400,40 @@
   
   ::soco 
     {
+    ::deaf [osm_id= 1000056144331 ] {
+      text-name: "'Texas School for the Deaf'";
+      marker-file: url(icon/school-24.svg);
+      marker-transform: translate(-150,-75);
+      marker-height: 50;
+      marker-fill: @purple;
+      marker-opacity: .75;
+      
+      text-name: @name;
+      text-face-name: @serif_italic;
+      text-size: 22;
+      text-dy: -25;
+      text-dx: -30;
+      text-fill: @purple;
+      text-halo-fill: #ccc;
+      text-halo-radius: 1.5;      
+    }
+    
+    ::fulmore [osm_id= 1000188587074 ]{
+      text-name: @name;
+      marker-file: url(icon/school-24.svg);
+      marker-transform: translate(0,-150);
+      marker-height: 50;
+      marker-fill: @purple;
+      marker-opacity: .75;
+      
+      text-name: @name;
+      text-face-name: @serif_italic;
+      text-size: 22;
+      text-dy: -85;
+      text-fill: @purple;
+      text-halo-fill: #ccc;
+      text-halo-radius: 1.5;       
+      }
     ::top [name="South Congress Cafe"],[name="The Continental Club"],[name="Hopdoddy"],[name="Home Slice Pizza"],
     [name="South Congress Cafe"],[name="Magnolia Cafe"],[osm_id=1000003181780241],//[name="Torchy's Tacos"],
       [osm_id=1000003181780244] //jo's
@@ -474,6 +547,22 @@
   
   ::zilker 
     {
+    ::austinhigh [osm_id= 1000204336151  ]{
+      text-name: @name;
+      marker-file: url(icon/school-24.svg);
+//      marker-transform: translate(0,-150);
+      marker-height: 50;
+      marker-fill: @purple;
+      marker-opacity: .75;
+      
+      text-name: @name;
+      text-face-name: @serif_italic;
+      text-size: 22;
+      text-dy: 35;
+      text-fill: @purple;
+      text-halo-fill: #ccc;
+      text-halo-radius: 1.5;       
+      }
     ::top [name="Barton Springs Pool"],[name="Zilker Disc Golf"] //,[name="Zilker Park"]
       {
       ::icon {
@@ -505,9 +594,9 @@
         text-allow-overlap: true;         
         }//end label
       } //end top
-    
-    ::other [name="Shady Grove"],
-    [name="Umlauf Sculpture Garden and Museum"],[name="Zilker Zephyr"],
+        
+    ::other [name="Shady Grove"],[name="Zilker Zephyr"],
+    [name="Umlauf Sculpture Garden and Museum"],
     [name="Zilker Hillside Theater"][osm_id=1000313444167],
     [name="Zilker Botanical Garden"],
     [name="Austin Nature Center"][osm_id=1000003194303977]
